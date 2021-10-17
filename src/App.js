@@ -1,4 +1,4 @@
-// Step 1. Import useReducer hook
+// Task 2d. Import useReducer hook
 import React, { useReducer } from 'react';
 
 import './App.css';
@@ -6,11 +6,13 @@ import './App.css';
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
-// Step 2. Import reducer & initalState
-import reducer, { initalState } from './reducers';
+// Task 2e. Import reducer & initalState
+import reducer, { initialState } from './reducers';
 
 function App() {
-
+// Task 3: Display state within the UI
+const [ state, dispatch ] = useReducer(reducer, initialState);
+console.log(state);
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -21,10 +23,13 @@ function App() {
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
             
-            <TotalDisplay value={0}/>
+            {/* Task 3c */}
+            <TotalDisplay value={state.total}/>
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
-              <span id="memory"><b>Memory:</b> 0</span>
+              {/* Task 3a */}
+              <span id="operation"><b>Operation:</b> {state.operation} </span>
+              {/* Task 3b */}
+              <span id="memory"><b>Memory:</b>{state.memory}</span>
             </div>
             
             <div className="row">
