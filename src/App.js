@@ -9,7 +9,10 @@ import CalcButton from './components/CalcButton';
 // Task 2e. Import reducer & initalState
 import reducer, { initialState } from './reducers';
 // Task 4b. Import addOne action creator
-import { addOne } from './actions';
+//import { addOne } from './actions';
+
+// Task 5a/b: import in applyNumber action creator to replace addOne for optimal functionality
+import { applyNumber } from './actions';
 
 function App() {
 // Task 3: Display state within the UI
@@ -19,7 +22,11 @@ const [ state, dispatch ] = useReducer(reducer, initialState);
 const handle1Click = () => {
   //console.log('here');
   // Task 4d: Dispatch addOne action creator
-  dispatch(addOne());
+  //dispatch(addOne());
+}
+// Task 5d: create eventhandler that takes in a number as an argument and dispatches 'applyNumber' with it
+const handleNumberClick = (number) => {
+  dispatch(applyNumber(number));
 }
   return (
     <div className="App">
@@ -48,21 +55,23 @@ const handle1Click = () => {
 
             <div className="row">
               {/* Task 4c-1: add onClick method */}
-              <CalcButton value={1} onClick={handle1Click}/>
-              <CalcButton value={2}/>
-              <CalcButton value={3}/>
+              {/* <CalcButton value={1} onClick={handle1Click}/> */}
+              {/* Task 5e/f/g: attach eventhandler applyNumber to onClick remember to wrap it in a function & invoke the function passed */}
+              <CalcButton value={1} onClick={() => handleNumberClick(1)}/>
+              <CalcButton value={2} onClick={() => handleNumberClick(2)}/>
+              <CalcButton value={3} onClick={() => handleNumberClick(3)}/>
             </div>
 
             <div className="row">
-              <CalcButton value={4}/>
-              <CalcButton value={5}/>
-              <CalcButton value={6}/>
+              <CalcButton value={4} onClick={() => handleNumberClick(4)}/>
+              <CalcButton value={5} onClick={() => handleNumberClick(5)}/>
+              <CalcButton value={6} onClick={() => handleNumberClick(6)}/>
             </div>
 
             <div className="row">
-              <CalcButton value={7}/>
-              <CalcButton value={8}/>
-              <CalcButton value={9}/>
+              <CalcButton value={7} onClick={() => handleNumberClick(7)}/>
+              <CalcButton value={8} onClick={() => handleNumberClick(8)}/>
+              <CalcButton value={9} onClick={() => handleNumberClick(9)}/>
             </div>
 
             <div className="row">
