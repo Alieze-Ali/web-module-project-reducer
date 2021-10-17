@@ -20,20 +20,21 @@ This simplified calculator adds the entire number selected, rather then adds dig
 
 ## Instructions
 ### Task 1: Project Set Up
-* [ ] Create a forked copy of this project.
-* [ ] Clone your OWN version of the repository in your terminal
-* [ ] cd into the project base directory `cd web-module-project-reducer-pattern`
-* [ ] Download project dependencies by running `npm install`
-* [ ] Start up the app using `npm start`
+* [ ] Create a forked copy of this project. - ok
+* [ ] Clone your OWN version of the repository in your terminal - ok
+* [ ] cd into the project base directory `cd web-module-project-reducer-pattern` - ok 
+* [ ] Download project dependencies by running `npm install` - ok
+* [ ] Start up the app using `npm start` - ok
 
 ### Task 2: Project Requirements
 #### Connect The Reducer
 > *Let's start our process by connecting our UI to our reducer and initial state.*
-* [ ] Take a tour of application, in particular the `App.js`, `/reducer/index.js`, and `/action/index.js` files.
-* [ ] Note that the `TotalDisplay` component takes in a value and displays it in a styled textarea. YOU WILL NOT NEED TO MODIFY THIS COMPONENT.
-* [ ] Note that the `CalcButton` component takes in an `onClick` method and a value, displays that value and attaches the passed `onClick` method to the button ui. YOU WILL NOT NEED TO MODIFY THIS COMPONENT.
-* [ ] Within App.js, import the useReducer hook, our application's reducer and initialState object.
-* [ ] Use useReducer hook to get access to the application state and the dispatch function.
+* [ ] Take a tour of application, in particular the `App.js`, `/reducer/index.js`, and `/action/index.js` files. - ok
+* [ ] Note that the `TotalDisplay` component takes in a value and displays it in a styled textarea. YOU WILL NOT NEED TO MODIFY THIS COMPONENT. - ok 
+* [ ] Note that the `CalcButton` component takes in an `onClick` method and a value, displays that value and attaches the passed `onClick` method to the button ui. YOU WILL NOT NEED TO MODIFY THIS COMPONENT. - ok 
+
+* [Step 1] Within App.js, import the useReducer hook, our application's reducer and initialState object.
+* [Step 2] Use useReducer hook to get access to the application state and the dispatch function.
 
 #### Display our state within the UI.
 > *We now have access to the state within our App component (You can even test this using console.log or your React dev tools). Let's render the state as is on our screen.*

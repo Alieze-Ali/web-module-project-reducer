@@ -1,9 +1,13 @@
-import React from 'react';
+// Step 1. Import useReducer hook
+import React, { useReducer } from 'react';
 
 import './App.css';
 
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
+
+// Step 2. Import reducer & initalState
+import reducer, { initalState } from './reducers';
 
 function App() {
 
