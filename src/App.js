@@ -8,11 +8,19 @@ import CalcButton from './components/CalcButton';
 
 // Task 2e. Import reducer & initalState
 import reducer, { initialState } from './reducers';
+// Task 4b. Import addOne action creator
+import { addOne } from './actions';
 
 function App() {
 // Task 3: Display state within the UI
 const [ state, dispatch ] = useReducer(reducer, initialState);
-console.log(state);
+// console.log(state);
+// Task 4c-2: Create event handler connected to the 1 button onClick method
+const handle1Click = () => {
+  //console.log('here');
+  // Task 4d: Dispatch addOne action creator
+  dispatch(addOne());
+}
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -39,7 +47,8 @@ console.log(state);
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
+              {/* Task 4c-1: add onClick method */}
+              <CalcButton value={1} onClick={handle1Click}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
