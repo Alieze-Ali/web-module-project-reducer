@@ -6,13 +6,14 @@ import './App.css';
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
-// Task 2e. Import reducer & initalState
+// Task 2e: Import reducer & initalState
 import reducer, { initialState } from './reducers';
-// Task 4b. Import addOne action creator
+// Task 4b: Import addOne action creator
 //import { addOne } from './actions';
 
-// Task 5a/b: import in applyNumber action creator to replace addOne for optimal functionality
-import { applyNumber } from './actions';
+
+// Task 5a/b/etc: 6c import action creators to replace addOne for optimal functionality
+import { applyNumber, changeOperation, clearDisplay, addMemory, applyMemory, clearMemory } from './actions';
 
 function App() {
 // Task 3: Display state within the UI
@@ -24,10 +25,34 @@ const handle1Click = () => {
   // Task 4d: Dispatch addOne action creator
   //dispatch(addOne());
 }
-// Task 5d: create eventhandler that takes in a number as an argument and dispatches 'applyNumber' with it
+// Task 5d: create event handler that takes in a number as an argument and dispatches 'applyNumber' with it
 const handleNumberClick = (number) => {
   dispatch(applyNumber(number));
 }
+// Task 6d: create event handler for handleOperationClick
+const handleOperationClick = (operator) => {
+  dispatch(changeOperation(operator));
+}
+// Task 7d: Create and connnect an event handller to the CE button that dispatches your clearDisplay action creator
+const handleClearDisplay = () => {
+  dispatch(clearDisplay());
+}
+
+// Task 8a-4: adding event handler function for M+, be sure to connect below with onClick
+const handleMemoryAdd = () => {
+  dispatch(addMemory());
+}
+
+// Task 8b-4: adding event handler function for MR button, connect with onClick below
+const handleMemoryApply = () => {
+  dispatch(applyMemory());
+}
+
+// Task 8c-4: adding event handler function for MC button, connect with onClick below, and import abobe
+const handleMemoryClear = () => {
+  dispatch(clearMemory());
+}
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -48,9 +73,12 @@ const handleNumberClick = (number) => {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              {/* Task 8a-3: Continuing with set up of M+ button  */}
+              <CalcButton value={"M+"} onClick={handleMemoryAdd}/>
+              {/* Task 8b-3: Continuing MR button connection to display to UI */}
+              <CalcButton value={"MR"} onClick={handleMemoryApply}/>
+              {/* Task 8c-3: Continuing MC button connection & UI display */}
+              <CalcButton value={"MC"} onClick={handleMemoryClear}/>
             </div>
 
             <div className="row">
@@ -75,13 +103,14 @@ const handleNumberClick = (number) => {
             </div>
 
             <div className="row">
-              <CalcButton value={"+"}/>
-              <CalcButton value={"*"}/>
-              <CalcButton value={"-"}/>
+              {/* Task 6d: Create & attach event handlers to onClick method */}
+              <CalcButton value={"+"} onClick={()=>handleOperationClick("+")}/>
+              <CalcButton value={"*"} onClick={()=>handleOperationClick("*")}/>
+              <CalcButton value={"-"} onClick={()=>handleOperationClick("-")}/>
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton value={"CE"} onClick={()=>handleClearDisplay(0)}/>
             </div>
 
           </form>
